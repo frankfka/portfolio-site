@@ -19,7 +19,6 @@ export function FooterIconLink({
   return (
     <motion.div className="relative" initial="initial" whileHover="animate">
       <motion.div
-        layout
         variants={TOOLTIP_VARIANTS}
         className={joinClassNames(
           'bg-tooltip-bg text-tooltip-text pointer-events-none rounded-lg px-2 py-1',

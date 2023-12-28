@@ -3,10 +3,18 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { FooterIconLink } from '@/components/Footer/FooterIconLink';
+import { WithClassnames } from '@/lib/types/UtilityTypes';
+import { joinClassNames } from '@/lib/classNameUtils';
 
-export function Footer() {
+// TODO: make this server compatible
+export function Footer({ className }: WithClassnames) {
   return (
-    <footer className="flex items-center justify-center gap-x-16">
+    <footer
+      className={joinClassNames(
+        'flex items-center justify-center gap-x-16',
+        className
+      )}
+    >
       <FooterIconLink
         href="https://github.com/frankfka"
         icon={FaGithub}
