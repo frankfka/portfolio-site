@@ -4,16 +4,25 @@ import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { WithClassnames } from '@/lib/types/UtilityTypes';
 import { joinClassNames } from '@/lib/classNameUtils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useDarkMode } from 'usehooks-ts';
+import { useTheme } from 'next-themes';
+import { useIsClient } from 'usehooks-ts';
 
 export function ColorModeButton({ className }: WithClassnames) {
-  const { isDarkMode, toggle } = useDarkMode();
+  const { resolvedTheme, setTheme } = useTheme();
+  const isClient = useIsClient();
 
+  if (!isClient) {
+    return null;
+  }
+
+  const isDarkMode = resolvedTheme === 'dark';
   const Icon = isDarkMode ? MdDarkMode : MdLightMode;
 
   return (
     <button
-      onClick={toggle}
+      onClick={() => {
+        setTheme(isDarkMode ? 'light' : 'dark');
+      }}
       className={joinClassNames(
         'border-accent text-text-primary rounded-full border-2 p-1',
         className
