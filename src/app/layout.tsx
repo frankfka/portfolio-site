@@ -21,7 +21,7 @@ export default function RootLayout({ children }: WithChildren) {
           'flex flex-col pb-4'
         )}
       >
-        <NavBar className="mx-16 mt-16" />
+        <NavBar className="mx-2 mt-8 lg:mx-16 lg:mt-16" />
         <div className="mx-auto flex max-w-[1000px] flex-1">{children}</div>
         <Footer />
       </body>

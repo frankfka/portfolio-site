@@ -17,10 +17,13 @@ export function NavBarLink({ href, children, className }: NavBarLinkProps) {
     <Link
       href={href}
       className={joinClassNames(
-        'px-2 py-1',
-        'text-text-primary hover:text-text-hover text-3xl font-bold transition-colors',
-        'border-text-primary hover:border-text-hover',
-        isActive && 'border-b-2',
+        'leading-5 lg:text-3xl',
+        'lg:px-2 lg:py-1',
+        'text-text-primary hover:text-text-hover font-bold transition-colors',
+        'border-b-2',
+        isActive
+          ? 'border-text-primary hover:border-text-hover'
+          : 'border-transparent',
         className
       )}
     >
