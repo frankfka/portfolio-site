@@ -24,8 +24,8 @@ export default function RootLayout({ children }: WithChildren) {
           <div
             className={joinClassNames(
               PLAYFAIR_DISPLAY.className,
-              'bg-page-bg text-text-primary box-border min-h-screen',
-              'flex flex-col pb-4'
+              'bg-page-bg text-text-primary transition-colors',
+              'box-border flex min-h-screen flex-col pb-4'
             )}
           >
             <NavBar className="mx-2 mt-8 lg:mx-16 lg:mt-16" />
