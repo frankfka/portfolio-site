@@ -1,7 +1,6 @@
 import styles from './home.module.css';
 
 export default function Home() {
-  throw Error();
   return (
     <main className="flex flex-col items-center justify-center gap-y-6 px-8 lg:gap-y-12">
       <div className="flex flex-col items-center gap-y-4">

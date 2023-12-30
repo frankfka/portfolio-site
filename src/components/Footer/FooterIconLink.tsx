@@ -1,21 +1,45 @@
 'use client';
 
-import { IconType } from 'react-icons';
 import { motion, Variants } from 'framer-motion';
 import { joinClassNames } from '@/lib/classNameUtils';
 import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+
+type FooterLinkType = 'github' | 'linkedin' | 'email';
 
 interface FooterIconLinkProps {
-  href: string;
-  icon: IconType;
-  label: string;
+  type: FooterLinkType;
 }
 
-export function FooterIconLink({
-  href,
-  icon: Icon,
-  label,
-}: FooterIconLinkProps) {
+export function FooterIconLink({ type }: FooterIconLinkProps) {
+  const {
+    href,
+    icon: Icon,
+    label,
+  } = (() => {
+    switch (type) {
+      case 'github':
+        return {
+          href: 'https://github.com/frankfka',
+          icon: FaGithub,
+          label: 'Github',
+        };
+      case 'linkedin':
+        return {
+          href: 'https://www.linkedin.com/in/jiafrank/',
+          icon: FaGithub,
+          label: 'LinkedIn',
+        };
+      case 'email':
+        return {
+          href: 'mailto:jiafrank98@gmail.com',
+          icon: MdEmail,
+          label: 'Email',
+        };
+    }
+  })();
+
   return (
     <motion.div className="relative" initial="initial" whileHover="animate">
       <motion.div
