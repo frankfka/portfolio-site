@@ -29,7 +29,9 @@ export default function RootLayout({ children }: WithChildren) {
             )}
           >
             <NavBar className="mx-2 mt-8 lg:mx-16 lg:mt-16" />
-            <div className="mx-auto flex max-w-[1000px] flex-1">{children}</div>
+            <div className="flex w-full max-w-[1000px] flex-1 self-center">
+              {children}
+            </div>
             <Footer />
           </div>
         </AppContext>

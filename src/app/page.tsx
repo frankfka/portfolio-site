@@ -2,7 +2,7 @@ import styles from './home.module.css';
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center gap-y-6 px-8 lg:gap-y-12">
+    <main className="flex w-full flex-col items-center justify-center gap-y-6 px-8 lg:gap-y-12">
       <div className="flex flex-col items-center gap-y-4">
         <div className="text-text-primary flex items-center gap-x-4 text-5xl lg:gap-x-8 lg:text-9xl">
           <span className={styles.wavingHand}>👋🏼</span>

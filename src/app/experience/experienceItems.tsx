@@ -24,7 +24,7 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
           foundational components of the Shopify mobile app, such as the UI
           design components and application networking.
         </p>
-        <ul>
+        <ul className="list-inside list-disc">
           <li>
             Responsible for the implementation of a thread-safe websocket client
             for Shopify Mobile
