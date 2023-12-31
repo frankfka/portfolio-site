@@ -6,7 +6,6 @@ import { WithClassnames } from '@/lib/types/UtilityTypes';
 import * as Accordion from '@radix-ui/react-accordion';
 import { useState } from 'react';
 import { MdAdd, MdRemove } from 'react-icons/md';
-import { joinClassNames } from '@/lib/classNameUtils';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface Props extends WithClassnames {
@@ -34,6 +33,7 @@ export function ExperienceAccordion({ items, className }: Props) {
             key={item.id}
             className="border-b-accent/40 border-b"
           >
+            {/*Trigger button*/}
             <Accordion.Header asChild>
               <Accordion.Trigger className="flex w-full items-center justify-between py-4">
                 <span className="text-text-primary text-4xl font-bold">
@@ -52,22 +52,24 @@ export function ExperienceAccordion({ items, className }: Props) {
                 </AnimatePresence>
               </Accordion.Trigger>
             </Accordion.Header>
-            <Accordion.Content asChild forceMount>
+            {/*Content*/}
+            <Accordion.Content forceMount asChild>
               <motion.div
-                className={joinClassNames(
-                  'text-text-secondary flex flex-col gap-y-2 overflow-clip'
-                )}
+                // With forceMount, the content is always mounted, so without hiding overflow, the content prevents
+                // subsequent accordion trigger buttons from being clicked
+                className="overflow-hidden"
                 initial={false}
                 animate={{
                   opacity: isActive ? 1 : 0,
                   height: isActive ? 'auto' : 0,
                 }}
               >
-                <span className="italic">
-                  {item.startDate} - {item.endDate}
-                </span>
-                {item.description}
-                <span className="pb-4" />
+                <div className="text-text-secondary flex flex-col gap-y-2 pb-4">
+                  <span className="italic">
+                    {item.startDate} - {item.endDate}
+                  </span>
+                  {item.description}
+                </div>
               </motion.div>
             </Accordion.Content>
           </Accordion.Item>

@@ -3,7 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import { joinClassNames } from '@/lib/classNameUtils';
 import Link from 'next/link';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 type FooterLinkType = 'github' | 'linkedin' | 'email';
@@ -28,7 +28,7 @@ export function FooterIconLink({ type }: FooterIconLinkProps) {
       case 'linkedin':
         return {
           href: 'https://www.linkedin.com/in/jiafrank/',
-          icon: FaGithub,
+          icon: FaLinkedin,
           label: 'LinkedIn',
         };
       case 'email':
