@@ -13,6 +13,7 @@ interface Props extends WithClassnames {
 }
 
 export function ExperienceAccordion({ items, className }: Props) {
+  // Empty string = no selection
   const [selectedItem, setSelectedItem] = useState<string>('');
 
   return (
@@ -25,7 +26,20 @@ export function ExperienceAccordion({ items, className }: Props) {
     >
       {items.map((item) => {
         const isActive = selectedItem === item.id;
-        const Icon = isActive ? MdRemove : MdAdd;
+
+        const TriggerIcon = isActive ? MdRemove : MdAdd;
+        const animatedTriggerIcon = (
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.div
+              key={isActive ? 'open' : 'closed'}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <TriggerIcon className="text-accent" />
+            </motion.div>
+          </AnimatePresence>
+        );
 
         return (
           <Accordion.Item
@@ -35,21 +49,12 @@ export function ExperienceAccordion({ items, className }: Props) {
           >
             {/*Trigger button*/}
             <Accordion.Header asChild>
-              <Accordion.Trigger className="flex w-full items-center justify-between py-4">
-                <span className="text-text-primary text-4xl font-bold">
+              <Accordion.Trigger className="flex w-full items-center justify-between py-4 text-xl lg:text-4xl">
+                <span className="text-text-primary font-bold">
                   {item.roleName}{' '}
                   <span className="text-text-secondary">@ {item.org}</span>
                 </span>
-                <AnimatePresence mode="popLayout" initial={false}>
-                  <motion.div
-                    key={isActive ? 'open' : 'closed'}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <Icon className="text-accent h-9 w-auto" />
-                  </motion.div>
-                </AnimatePresence>
+                {animatedTriggerIcon}
               </Accordion.Trigger>
             </Accordion.Header>
             {/*Content*/}
@@ -64,7 +69,7 @@ export function ExperienceAccordion({ items, className }: Props) {
                   height: isActive ? 'auto' : 0,
                 }}
               >
-                <div className="text-text-secondary flex flex-col gap-y-2 pb-4">
+                <div className="text-text-secondary flex flex-col gap-y-2 pb-4 text-sm lg:text-base">
                   <span className="italic">
                     {item.startDate} - {item.endDate}
                   </span>

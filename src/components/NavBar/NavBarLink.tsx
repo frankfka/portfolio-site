@@ -20,7 +20,7 @@ export function NavBarLink({ href, children, className }: NavBarLinkProps) {
         'leading-5 lg:text-3xl',
         'lg:px-2 lg:py-1',
         'text-text-primary hover:text-text-hover font-bold transition-colors',
-        'border-b-2',
+        'border-b lg:border-b-2',
         isActive
           ? 'border-text-primary hover:border-text-hover'
           : 'border-transparent',
