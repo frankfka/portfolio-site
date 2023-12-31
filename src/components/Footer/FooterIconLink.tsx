@@ -52,7 +52,7 @@ export function FooterIconLink({ type }: FooterIconLinkProps) {
         {label}
       </motion.div>
       <Link href={href} target="_blank" rel="noopener noreferrer">
-        <Icon className="text-text-primary hover:text-text-hover h-auto w-4 transition-colors lg:w-6" />
+        <Icon className="text-text-primary hover:text-text-hover h-auto w-4 transition-colors md:w-5 lg:w-6" />
       </Link>
     </motion.div>
   );

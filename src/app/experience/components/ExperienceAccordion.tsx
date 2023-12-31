@@ -49,7 +49,7 @@ export function ExperienceAccordion({ items, className }: Props) {
           >
             {/*Trigger button*/}
             <Accordion.Header asChild>
-              <Accordion.Trigger className="flex w-full items-center justify-between py-4 text-xl lg:text-4xl">
+              <Accordion.Trigger className="flex w-full items-center justify-between py-4 text-xl md:text-2xl lg:text-4xl">
                 <span className="text-text-primary font-bold">
                   {item.roleName}{' '}
                   <span className="text-text-secondary">@ {item.org}</span>

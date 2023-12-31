@@ -11,7 +11,7 @@ export function NavBar({ className }: WithClassnames) {
       <ColorModeButton className="absolute right-0 top-0 hidden lg:block" />
       <nav
         className={joinClassNames(
-          'flex items-center justify-center gap-x-4 lg:gap-x-32'
+          'flex items-center justify-center gap-x-4 md:gap-x-8 lg:gap-x-32'
         )}
       >
         <NavBarLink href="/">about</NavBarLink>

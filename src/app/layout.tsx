@@ -29,7 +29,7 @@ export default function RootLayout({ children }: WithChildren) {
             )}
           >
             <NavBar className="mx-2 mt-8 lg:mx-16 lg:mt-16" />
-            <div className="flex w-full max-w-[1000px] flex-1 self-center px-8">
+            <div className="flex max-w-[1000px] flex-1 self-center px-8">
               {children}
             </div>
             <Footer />

@@ -17,8 +17,8 @@ export function NavBarLink({ href, children, className }: NavBarLinkProps) {
     <Link
       href={href}
       className={joinClassNames(
-        'leading-5 lg:text-3xl',
-        'lg:px-2 lg:py-1',
+        'leading-5 md:text-xl md:leading-6 lg:text-3xl',
+        'md:px-2 md:py-1',
         'text-text-primary hover:text-text-hover font-bold transition-colors',
         'border-b lg:border-b-2',
         isActive
